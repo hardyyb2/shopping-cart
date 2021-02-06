@@ -51,7 +51,7 @@ const Home = () => {
     if (!itemsState?.items) {
       fetchCart();
     }
-  }, [itemsState.items]);
+  }, []);
 
   return (
     <HomeWrapper>

@@ -41,7 +41,7 @@ const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
     totalPrice,
     totalNormalDiscount,
     totalTypeDiscount,
-  } = calculateTotalPriceAndItems(items);
+  } = calculateTotalPriceAndItems(newItems);
 
   return {
     items: newItems,

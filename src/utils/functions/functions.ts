@@ -29,7 +29,7 @@ export const calculateTotalPriceAndItems = (items: DataProps[]) => {
   return {
     totalPrice,
     totalItems,
-    totalNormalDiscount,
-    totalTypeDiscount,
+    totalNormalDiscount: parseFloat(totalNormalDiscount.toFixed(1)),
+    totalTypeDiscount: parseFloat(totalTypeDiscount.toFixed(1)),
   };
 };
