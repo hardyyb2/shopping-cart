@@ -1,3 +1,4 @@
+import { ItemGroup } from "..";
 import { DataProps } from "../../utils";
 
 import {
@@ -33,7 +34,14 @@ const ItemTable: React.FC<IProps> = ({ title, headers, items }) => {
         <RowsContainer>
           {items &&
             items.map((item: DataProps, index: number) => (
-              <Row key={index}>{item.name}</Row>
+              <Row key={index}>
+                <ItemGroup
+                  title={item.name}
+                  price={item.price}
+                  imgSrc={item.img_url}
+                  quantity={1}
+                />
+              </Row>
             ))}
         </RowsContainer>
       </TableContainer>
