@@ -1,9 +1,42 @@
-import { ItemTable, OrderCard } from "../components";
-import { HomeStyles } from "../styles";
+import { useContext, useEffect } from "react";
 
+import { data } from "../bin";
+import { DataProps } from "../utils";
+import { ItemTable, OrderCard } from "../components";
+import { ItemsContext, itemTypes } from "../context/Items";
+
+import { HomeStyles } from "../styles";
 const { HomeWrapper, HomeContainer } = HomeStyles;
 
+const LOCALSTORAGE_ITEMS_KEY = "items";
+
 const Home = () => {
+  const [itemsState, itemsDispatch] = useContext(ItemsContext);
+
+  const fetchAllItems = () => {
+    return data;
+  };
+
+  const fetchCart = () => {
+    const localItems = localStorage.getItem(LOCALSTORAGE_ITEMS_KEY);
+    let items: null | DataProps[] = null;
+
+    if (!localItems) {
+      items = fetchAllItems();
+      localStorage.setItem(LOCALSTORAGE_ITEMS_KEY, JSON.stringify(items));
+    } else {
+      items = JSON.parse(localItems);
+    }
+
+    return itemsDispatch({ type: itemTypes.SET_CART, payload: items });
+  };
+
+  useEffect(() => {
+    if (!itemsState?.items) {
+      fetchCart();
+    }
+  }, [itemsState.items]);
+
   return (
     <HomeWrapper>
       <HomeContainer>
