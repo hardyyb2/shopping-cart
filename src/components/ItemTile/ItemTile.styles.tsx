@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const TileWrapper = styled.div`
-  width: calc(var(--size) * 40);
-`;
+export const TileWrapper = styled.div``;
 
 export const TileContainer = styled.div`
   display: flex;
