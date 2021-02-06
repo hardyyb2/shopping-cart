@@ -1,4 +1,4 @@
-import { ItemTable } from "../components";
+import { ItemTable, OrderCard } from "../components";
 import { GlobalStyles } from "../styles";
 
 import { AppWrapper } from "./App.styles";
@@ -21,6 +21,7 @@ const App: React.FC<{}> = () => {
           },
         ]}
       />
+      <OrderCard />
     </AppWrapper>
   );
 };
