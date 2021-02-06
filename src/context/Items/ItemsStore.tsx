@@ -1,9 +1,9 @@
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
 import ItemsReducer from "./ItemsReducer";
-import { ActionTypes, IState } from "./types";
+import { ItemsActionTypes, ItemsState } from "./types";
 
-const initialState: IState = {
+const initialState: ItemsState = {
   items: null,
 };
 
@@ -14,10 +14,10 @@ interface IProps {
 }
 
 const ItemsStore: React.FC<IProps> = ({ children }) => {
-  const [state, dispatch]: [IState, Dispatch<ActionTypes>] = useReducer(
-    ItemsReducer,
-    initialState
-  );
+  const [state, dispatch]: [
+    ItemsState,
+    Dispatch<ItemsActionTypes>
+  ] = useReducer(ItemsReducer, initialState);
 
   return (
     <ItemsContext.Provider value={[state, dispatch]}>

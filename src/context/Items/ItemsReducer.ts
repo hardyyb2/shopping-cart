@@ -1,8 +1,8 @@
-import { IState, ActionTypes } from "./types";
+import { ItemsActionTypes, ItemsState } from "./types";
 
 export const itemTypes = {};
 
-const Reducer = (state: IState, action: ActionTypes) => {
+const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
   switch (action.type) {
     default:
       return state;
