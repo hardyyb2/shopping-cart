@@ -11,6 +11,7 @@ interface ChangeProps {
   totalItems: number;
   totalNormalDiscount: number;
   totalTypeDiscount: number;
+  orderTotal: number;
 }
 
 const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
@@ -41,6 +42,7 @@ const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
     totalPrice,
     totalNormalDiscount,
     totalTypeDiscount,
+    orderTotal,
   } = calculateTotalPriceAndItems(newItems);
 
   return {
@@ -49,6 +51,7 @@ const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
     totalItems,
     totalNormalDiscount,
     totalTypeDiscount,
+    orderTotal,
   };
 };
 

@@ -11,6 +11,7 @@ const initialState: ItemsState = {
   totalDiscount: 0,
   totalNormalDiscount: 0,
   totalTypeDiscount: 0,
+  orderTotal: 0,
 };
 
 export const ItemsContext = createContext<any>(initialState);

@@ -19,6 +19,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
         totalItems: payload.totalItems,
         totalNormalDiscount: payload.totalNormalDiscount,
         totalTypeDiscount: payload.totalTypeDiscount,
+        orderTotal: payload.orderTotal,
       };
 
     case itemTypes.ADD_ITEM:
@@ -29,6 +30,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
           totalItems,
           totalNormalDiscount,
           totalTypeDiscount,
+          orderTotal,
         } = incrementItem(state.items, payload);
 
         return {
@@ -38,6 +40,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
           totalItems,
           totalNormalDiscount,
           totalTypeDiscount,
+          orderTotal,
         };
       }
       return {
@@ -52,6 +55,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
           totalItems,
           totalNormalDiscount,
           totalTypeDiscount,
+          orderTotal,
         } = decrementItem(state.items, payload);
 
         return {
@@ -61,6 +65,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
           totalItems,
           totalNormalDiscount,
           totalTypeDiscount,
+          orderTotal,
         };
       }
       return {

@@ -33,6 +33,7 @@ const Home = () => {
       totalPrice,
       totalNormalDiscount,
       totalTypeDiscount,
+      orderTotal,
     } = calculateTotalPriceAndItems(items);
 
     return itemsDispatch({
@@ -43,6 +44,7 @@ const Home = () => {
         totalItems,
         totalNormalDiscount,
         totalTypeDiscount,
+        orderTotal,
       },
     });
   };

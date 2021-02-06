@@ -11,7 +11,8 @@ export const calculateTotalPriceAndItems = (items: DataProps[]) => {
   let totalPrice = 0,
     totalItems = 0,
     totalNormalDiscount = 0,
-    totalTypeDiscount = 0;
+    totalTypeDiscount = 0,
+    orderTotal = 0;
 
   items.length &&
     items.forEach((item) => {
@@ -26,10 +27,13 @@ export const calculateTotalPriceAndItems = (items: DataProps[]) => {
       }
     });
 
+  orderTotal = totalPrice - totalNormalDiscount - totalTypeDiscount;
+
   return {
     totalPrice,
     totalItems,
     totalNormalDiscount: parseFloat(totalNormalDiscount.toFixed(1)),
     totalTypeDiscount: parseFloat(totalTypeDiscount.toFixed(1)),
+    orderTotal,
   };
 };
