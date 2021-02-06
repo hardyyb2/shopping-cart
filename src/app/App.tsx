@@ -1,10 +1,10 @@
-import styles from "./App.module.css";
+import { AppWrapper } from "./App.styles";
 
 const App: React.FC<{}> = () => {
   return (
-    <div className={styles.App}>
-      <div>Start </div>
-    </div>
+    <AppWrapper>
+      <div>Start</div>
+    </AppWrapper>
   );
 };
 
