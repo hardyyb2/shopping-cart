@@ -48,7 +48,11 @@ const OrderCard: React.FC<OrderCardProps> = () => {
           />
         </PriceWrapper>
         <TotalContainer>
-          <PriceCard title="total" price={10} />
+          <PriceCard title="Discount" price={itemsState.totalNormalDiscount} />
+          <PriceCard
+            title="Type Discount"
+            price={itemsState.totalTypeDiscount}
+          />
         </TotalContainer>
       </CardContainer>
     </CardWrapper>

@@ -6,6 +6,8 @@ export interface ItemsState {
   totalItems: number;
   discount: number;
   totalDiscount: number;
+  totalNormalDiscount: number;
+  totalTypeDiscount: number;
 }
 
 export interface ItemsActionTypes {

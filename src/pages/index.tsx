@@ -28,11 +28,22 @@ const Home = () => {
       items = JSON.parse(localItems);
     }
 
-    let { totalItems, totalPrice } = calculateTotalPriceAndItems(items);
+    let {
+      totalItems,
+      totalPrice,
+      totalNormalDiscount,
+      totalTypeDiscount,
+    } = calculateTotalPriceAndItems(items);
 
     return itemsDispatch({
       type: itemTypes.SET_CART,
-      payload: { items, totalPrice, totalItems },
+      payload: {
+        items,
+        totalPrice,
+        totalItems,
+        totalNormalDiscount,
+        totalTypeDiscount,
+      },
     });
   };
 

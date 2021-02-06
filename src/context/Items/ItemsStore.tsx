@@ -9,6 +9,8 @@ const initialState: ItemsState = {
   totalItems: 0,
   discount: 0,
   totalDiscount: 0,
+  totalNormalDiscount: 0,
+  totalTypeDiscount: 0,
 };
 
 export const ItemsContext = createContext<any>(initialState);
