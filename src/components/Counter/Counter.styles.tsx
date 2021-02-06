@@ -8,4 +8,6 @@ export const CounterContainer = styled.div`
   width: calc(var(--size) * 10);
 `;
 
-export const CountCountainer = styled.div``;
+export const CountCountainer = styled.div`
+  padding: 0px var(--size);
+`;
