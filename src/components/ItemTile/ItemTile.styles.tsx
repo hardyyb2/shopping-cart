@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const TileWrapper = styled.div`
-  width: 300px;
-  height: 100px;
+  width: calc(var(--size) * 40);
 `;
 
 export const TileContainer = styled.div`
@@ -17,5 +16,5 @@ export const TitleContainer = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  padding: 0px 10px;
+  padding: 0px var(--size);
 `;

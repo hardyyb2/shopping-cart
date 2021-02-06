@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
     :root {
         --blue: #44A7FD;
+        --size: 8px;
+        --default-dimension: 50px;
     }
 	
     * {

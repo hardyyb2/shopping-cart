@@ -13,7 +13,7 @@ const ItemTile: React.FC<IProps> = ({ imgSrc, title }) => {
   return (
     <TileWrapper>
       <TileContainer>
-        <ImageContainer>
+        <ImageContainer width={40}>
           <Image src={imgSrc} alt={title} />
         </ImageContainer>
         <TitleContainer>{title}</TitleContainer>

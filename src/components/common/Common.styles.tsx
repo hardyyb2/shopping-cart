@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const ImageContainer = styled.div<{ width?: number; height?: number }>`
-  width: ${({ width }) => (width ? width : 50)}px;
-  min-width: ${({ width }) => (width ? width : 50)}px;
-  height: ${({ height }) => (height ? height : 50)}px;
+  width: ${({ width }) => (width ? width : "var(--default-dimension)")};
+  min-width: ${({ width }) => (width ? width : "var(--default-dimension)")};
+  height: ${({ height }) => (height ? height : "auto")};
   object-fit: cover;
 `;
 
@@ -15,9 +15,9 @@ export const Image = styled.img`
 `;
 
 export const IconButton = styled.button<{ width?: number; height?: number }>`
-  width: ${({ width }) => (width ? width : 50)}px;
-  min-width: ${({ width }) => (width ? width : 50)}px;
-  height: ${({ height }) => (height ? `${height}px` : "auto")};
+  width: ${({ width }) => (width ? width : "var(--default-dimension)")};
+  min-width: ${({ width }) => (width ? width : "var(--default-dimension)")};
+  height: ${({ height }) => (height ? height : "auto")};
   overflow: hidden;
   border: none;
   padding: 0px;
