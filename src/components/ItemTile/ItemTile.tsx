@@ -1,11 +1,6 @@
-import {
-  TileWrapper,
-  TileContainer,
-  TitleContainer,
-  ImageContainer,
-  Image,
-  IconButton,
-} from "./ItemTile.styles";
+import { ImageContainer, Image, IconButton } from "../common";
+
+import { TileWrapper, TileContainer, TitleContainer } from "./ItemTile.styles";
 
 import DeleteIcon from "../../assets/images/delete.svg";
 
