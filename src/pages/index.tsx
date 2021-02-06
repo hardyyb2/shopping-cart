@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 
 import { data } from "../bin";
-import { DataProps } from "../utils";
+import { calculateTotalPriceAndItems, DataProps } from "../utils";
 import { ItemTable, OrderCard } from "../components";
 import { ItemsContext, itemTypes } from "../context/Items";
 
@@ -19,7 +19,7 @@ const Home = () => {
 
   const fetchCart = () => {
     const localItems = localStorage.getItem(LOCALSTORAGE_ITEMS_KEY);
-    let items: null | DataProps[] = null;
+    let items: DataProps[] | [] = [];
 
     if (!localItems) {
       items = fetchAllItems();
@@ -28,7 +28,12 @@ const Home = () => {
       items = JSON.parse(localItems);
     }
 
-    return itemsDispatch({ type: itemTypes.SET_CART, payload: items });
+    let { totalItems, totalPrice } = calculateTotalPriceAndItems(items);
+
+    return itemsDispatch({
+      type: itemTypes.SET_CART,
+      payload: { items, totalPrice, totalItems },
+    });
   };
 
   useEffect(() => {

@@ -14,36 +14,46 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
     case itemTypes.SET_CART:
       return {
         ...state,
-        items: payload,
+        items: payload.items,
+        totalPrice: payload.totalPrice,
+        totalItems: payload.totalItems,
       };
 
     case itemTypes.ADD_ITEM:
       if (state.items) {
-        let newItems = incrementItem(state.items, payload);
+        let { items, totalPrice, totalItems } = incrementItem(
+          state.items,
+          payload
+        );
 
         return {
           ...state,
-          items: newItems,
-        };
-      } else {
-        return {
-          ...state,
+          items,
+          totalPrice,
+          totalItems,
         };
       }
+      return {
+        ...state,
+      };
 
     case itemTypes.SUBTRACT_ITEM:
       if (state.items) {
-        let newItems = decrementItem(state.items, payload);
+        let { items, totalPrice, totalItems } = decrementItem(
+          state.items,
+          payload
+        );
 
         return {
           ...state,
-          items: newItems,
-        };
-      } else {
-        return {
-          ...state,
+          items,
+          totalPrice,
+          totalItems,
         };
       }
+      return {
+        ...state,
+      };
 
     default:
       return state;

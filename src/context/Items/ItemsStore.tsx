@@ -5,6 +5,10 @@ import { ItemsActionTypes, ItemsState } from "./types";
 
 const initialState: ItemsState = {
   items: null,
+  totalPrice: 0,
+  totalItems: 0,
+  discount: 0,
+  totalDiscount: 0,
 };
 
 export const ItemsContext = createContext<any>(initialState);

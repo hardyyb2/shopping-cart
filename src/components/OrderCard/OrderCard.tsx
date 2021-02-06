@@ -1,4 +1,7 @@
+import { useContext } from "react";
+
 import { Currency } from "../../utils";
+import { ItemsContext } from "../../context/Items";
 
 import {
   CardContainer,
@@ -30,6 +33,8 @@ const PriceCard: React.FC<PriceCardProps> = ({ title, price }) => (
 interface OrderCardProps {}
 
 const OrderCard: React.FC<OrderCardProps> = () => {
+  const [itemsState] = useContext(ItemsContext);
+
   return (
     <CardWrapper>
       <CardContainer>
@@ -37,7 +42,10 @@ const OrderCard: React.FC<OrderCardProps> = () => {
           <Title></Title>
         </TitleContainer>
         <PriceWrapper>
-          <PriceCard title="Hello" price={10} />
+          <PriceCard
+            title={`Items (${itemsState.totalItems})`}
+            price={itemsState.totalPrice}
+          />
         </PriceWrapper>
         <TotalContainer>
           <PriceCard title="total" price={10} />

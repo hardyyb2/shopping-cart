@@ -5,8 +5,17 @@ enum ChangeType {
   SUBTRACT = "sub",
 }
 
+interface ChangeProps {
+  items: DataProps[];
+  totalPrice: number;
+  totalItems: number;
+}
+
 const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
   let newItems = [...items];
+  let totalItems = 0;
+  let totalPrice = 0;
+
   newItems = newItems.map((item) => {
     if (item.id === payload) {
       let newItem = { ...item };
@@ -19,26 +28,32 @@ const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
             : item.quantity
           : item.quantity;
 
+      totalPrice += newItem.quantity * newItem.price;
+      totalItems += newItem.quantity;
+
       return newItem;
     }
+    totalPrice += item.quantity * item.price;
+    totalItems += item.quantity;
+
     return item;
   });
 
   localStorage.setItem("items", JSON.stringify(newItems));
 
-  return newItems;
+  return { items: newItems, totalPrice, totalItems };
 };
 
 export const incrementItem = (
   items: DataProps[],
   payload: any
-): DataProps[] => {
+): ChangeProps => {
   return setItems(items, payload, ChangeType.ADD);
 };
 
 export const decrementItem = (
   items: DataProps[],
   payload: any
-): DataProps[] => {
+): ChangeProps => {
   return setItems(items, payload, ChangeType.SUBTRACT);
 };
