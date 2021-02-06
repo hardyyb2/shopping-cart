@@ -2,15 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import "./index.css";
+import { ItemsStore } from "./context/Items";
 import { App } from "./app";
+
+import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ItemsStore>
+      <Router>
+        <App />
+      </Router>
+    </ItemsStore>
   </React.StrictMode>,
   document.getElementById("root")
 );
