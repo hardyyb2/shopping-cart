@@ -10,13 +10,20 @@ import {
 } from "./ItemGroup.styles";
 
 interface IProps {
+  id: number;
   title: string;
   imgSrc?: string;
   price: number;
   quantity: number;
 }
 
-const ItemGroup: React.FC<IProps> = ({ title, imgSrc, price, quantity }) => {
+const ItemGroup: React.FC<IProps> = ({
+  id,
+  title,
+  imgSrc,
+  price,
+  quantity,
+}) => {
   return (
     <GroupWrapper>
       <GroupContainer>
@@ -24,7 +31,7 @@ const ItemGroup: React.FC<IProps> = ({ title, imgSrc, price, quantity }) => {
           <ItemTile title={title} imgSrc={imgSrc} />
         </ItemTileContainer>
         <CounterContainer>
-          <Counter quantity={quantity} />
+          <Counter quantity={quantity} id={id} />
         </CounterContainer>
         <PriceContainer>
           {Currency.current} {price}

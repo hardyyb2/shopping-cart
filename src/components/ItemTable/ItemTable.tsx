@@ -14,7 +14,7 @@ import {
 
 interface IProps {
   title: string;
-  items: DataProps[];
+  items: DataProps[] | null;
   headers: string[];
 }
 
@@ -36,10 +36,11 @@ const ItemTable: React.FC<IProps> = ({ title, headers, items }) => {
             items.map((item: DataProps, index: number) => (
               <Row key={index}>
                 <ItemGroup
+                  id={item.id}
                   title={item.name}
                   price={item.price}
                   imgSrc={item.img_url}
-                  quantity={1}
+                  quantity={item.quantity}
                 />
               </Row>
             ))}

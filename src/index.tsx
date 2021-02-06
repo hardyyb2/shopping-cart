@@ -9,13 +9,11 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ItemsStore>
-      <Router>
-        <App />
-      </Router>
-    </ItemsStore>
-  </React.StrictMode>,
+  <ItemsStore>
+    <Router>
+      <App />
+    </Router>
+  </ItemsStore>,
   document.getElementById("root")
 );
 

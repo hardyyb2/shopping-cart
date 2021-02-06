@@ -19,6 +19,8 @@ export const ImageContainer = styled.div<{ width?: number; height?: number }>`
   min-width: ${({ width }) =>
     width ? `${width}px` : "var(--default-dimension)"};
   height: ${({ height }) => (height ? `${height}px` : "auto")};
+  min-height: ${({ height }) =>
+    height ? `${height}px` : "var(--default-dimension)"};
   object-fit: cover;
 `;
 
