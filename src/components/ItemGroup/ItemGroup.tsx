@@ -1,4 +1,4 @@
-import ItemTile from "../ItemTile";
+import { ItemTile, Counter } from "../";
 
 import {
   CounterContainer,
@@ -26,7 +26,9 @@ const ItemGroup: React.FC<IProps> = ({ title, imgSrc, price, quantity }) => {
         <ItemTileContainer>
           <ItemTile title={title} imgSrc={imgSrc} />
         </ItemTileContainer>
-        <CounterContainer>{quantity}</CounterContainer>
+        <CounterContainer>
+          <Counter quantity={quantity} />
+        </CounterContainer>
         <PriceContainer>
           {Currency.dollars} {price}
         </PriceContainer>

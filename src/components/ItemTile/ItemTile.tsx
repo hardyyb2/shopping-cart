@@ -2,7 +2,7 @@ import { ImageContainer, Image, IconButton } from "../common";
 
 import { TileWrapper, TileContainer, TitleContainer } from "./ItemTile.styles";
 
-import DeleteIcon from "../../assets/images/delete.svg";
+import { DeleteIcon } from "../../assets";
 
 interface IProps {
   imgSrc?: string;
