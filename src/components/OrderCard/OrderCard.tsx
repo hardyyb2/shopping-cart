@@ -1,3 +1,5 @@
+import { Currency } from "../../utils";
+
 import {
   CardContainer,
   CardWrapper,
@@ -18,7 +20,10 @@ interface PriceCardProps {
 const PriceCard: React.FC<PriceCardProps> = ({ title, price }) => (
   <PriceContainer>
     <ItemName>{title}</ItemName>
-    <ItemPrice>{price}</ItemPrice>
+    <ItemPrice>
+      {Currency.dollars}
+      {price}
+    </ItemPrice>
   </PriceContainer>
 );
 

@@ -1,4 +1,5 @@
 import { ItemTile, Counter } from "../";
+import { Currency } from "../../utils";
 
 import {
   CounterContainer,
@@ -15,10 +16,6 @@ interface IProps {
   quantity: number;
 }
 
-enum Currency {
-  dollars = "$",
-}
-
 const ItemGroup: React.FC<IProps> = ({ title, imgSrc, price, quantity }) => {
   return (
     <GroupWrapper>
@@ -30,7 +27,7 @@ const ItemGroup: React.FC<IProps> = ({ title, imgSrc, price, quantity }) => {
           <Counter quantity={quantity} />
         </CounterContainer>
         <PriceContainer>
-          {Currency.dollars} {price}
+          {Currency.current} {price}
         </PriceContainer>
       </GroupContainer>
     </GroupWrapper>
