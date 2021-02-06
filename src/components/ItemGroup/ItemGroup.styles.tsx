@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
+import { SpaceBetweenFlex } from "../common";
+
 export const GroupWrapper = styled.div`
   width: calc(var(--size) * 40);
 `;
 
-export const GroupContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
+export const GroupContainer = styled(SpaceBetweenFlex)``;
 
 export const ItemTileContainer = styled.div``;
 

@@ -4,7 +4,6 @@ export const CounterWrapper = styled.div``;
 
 export const CounterContainer = styled.div`
   display: flex;
-  flex-direction: row;
   width: calc(var(--size) * 10);
 `;
 

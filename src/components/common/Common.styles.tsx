@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const Flex = styled.div`
+  display: flex;
+`;
+
+export const SpaceBetweenFlex = styled(Flex)`
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const CenterFlex = styled(Flex)`
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ImageContainer = styled.div<{ width?: number; height?: number }>`
   width: ${({ width }) => (width ? `${width}px` : "var(--default-dimension)")};
   min-width: ${({ width }) =>

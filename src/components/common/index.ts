@@ -1,1 +1,8 @@
-export { IconButton, Image, ImageContainer } from "./Common.styles";
+export {
+  IconButton,
+  Image,
+  ImageContainer,
+  Flex,
+  SpaceBetweenFlex,
+  CenterFlex,
+} from "./Common.styles";
