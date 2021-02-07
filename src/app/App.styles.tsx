@@ -5,4 +5,5 @@ import { CenterFlex } from "../components/common";
 export const AppWrapper = styled(CenterFlex)`
   text-align: center;
   min-height: 100vh;
+  width: 100%;
 `;

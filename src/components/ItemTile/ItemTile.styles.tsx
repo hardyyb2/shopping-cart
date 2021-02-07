@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 import { SpaceBetweenFlex } from "../common";
 
-export const TileWrapper = styled.div``;
+export const TileWrapper = styled.div`
+  padding: 0px var(--size);
+`;
 
 export const TileContainer = styled(SpaceBetweenFlex)``;
 

@@ -16,7 +16,7 @@ export const CenterFlex = styled(Flex)`
   align-items: center;
 `;
 
-export const ImageContainer = styled.div<{ width?: number; height?: number }>`
+export const ImageContainer = styled(Flex)<{ width?: number; height?: number }>`
   width: ${({ width }) => (width ? `${width}px` : "var(--default-dimension)")};
   min-width: ${({ width }) =>
     width ? `${width}px` : "var(--default-dimension)"};
@@ -24,6 +24,7 @@ export const ImageContainer = styled.div<{ width?: number; height?: number }>`
   min-height: ${({ height }) =>
     height ? `${height}px` : "var(--default-dimension)"};
   object-fit: cover;
+  align-items: center;
 `;
 
 export const Image = styled.img`

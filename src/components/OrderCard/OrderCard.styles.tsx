@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Flex, SpaceBetweenFlex } from "../common";
 
 export const CardWrapper = styled.div`
-  margin: calc(var(--size) * 5) calc(var(--size) * 2);
+  margin: calc(var(--size) * 5) auto;
+  max-width: 300px;
 `;
 
 export const CardContainer = styled(Flex)`
