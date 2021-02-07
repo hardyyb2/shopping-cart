@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 
-import { GlobalStyles } from "../styles";
+import { GlobalStyles, TypoGraphy } from "../styles";
 
 import { LayoutContainer, LayoutWrapper } from "./Layout.styles";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +14,7 @@ const Layout: React.FC<IProps> = ({ children }) => {
   return (
     <LayoutWrapper>
       <GlobalStyles />
+      <TypoGraphy />
       <ToastContainer />
       <LayoutContainer>{children}</LayoutContainer>
     </LayoutWrapper>
