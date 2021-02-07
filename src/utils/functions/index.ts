@@ -1,1 +1,6 @@
-export { calculateTotalPriceAndItems, notify } from "./functions";
+export {
+  calculateTotalPriceAndItems,
+  notify,
+  saveToLocalStorage,
+  getFromLocalStorage,
+} from "./functions";

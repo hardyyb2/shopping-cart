@@ -1,9 +1,14 @@
 import { useContext, useEffect } from "react";
 
 import { data } from "../bin";
-import { calculateTotalPriceAndItems, DataProps } from "../utils";
+import {
+  calculateTotalPriceAndItems,
+  DataProps,
+  getFromLocalStorage,
+  saveToLocalStorage,
+} from "../utils";
 import { ItemTable, OrderCard, RestoreButton } from "../components";
-import { ItemsContext, itemTypes } from "../context/Items";
+import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
 
 import { HomeStyles } from "../styles";
 const { HomeWrapper, HomeContainer } = HomeStyles;
@@ -18,33 +23,23 @@ const Home = () => {
   };
 
   const fetchCart = () => {
-    const localItems = localStorage.getItem(LOCALSTORAGE_ITEMS_KEY);
+    const localItems = getFromLocalStorage(ITEMS_KEY);
     let items: DataProps[] | [] = [];
 
     if (!localItems) {
       items = fetchAllItems();
-      localStorage.setItem(LOCALSTORAGE_ITEMS_KEY, JSON.stringify(items));
+      saveToLocalStorage(ITEMS_KEY, items);
     } else {
-      items = JSON.parse(localItems);
+      items = localItems;
     }
 
-    let {
-      totalItems,
-      totalPrice,
-      totalNormalDiscount,
-      totalTypeDiscount,
-      orderTotal,
-    } = calculateTotalPriceAndItems(items);
+    let priceAndItems = calculateTotalPriceAndItems(items);
 
     return itemsDispatch({
       type: itemTypes.SET_CART,
       payload: {
         items,
-        totalPrice,
-        totalItems,
-        totalNormalDiscount,
-        totalTypeDiscount,
-        orderTotal,
+        ...priceAndItems,
       },
     });
   };

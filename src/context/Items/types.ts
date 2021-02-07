@@ -15,3 +15,14 @@ export interface ItemsActionTypes {
   type: string;
   payload?: any;
 }
+
+export interface ChangeProps {
+  items: DataProps[];
+  totalPrice: number;
+  totalItems: number;
+  totalNormalDiscount: number;
+  totalTypeDiscount: number;
+  orderTotal: number;
+}
+
+export const ITEMS_KEY = "items";

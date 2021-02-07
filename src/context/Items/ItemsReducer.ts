@@ -1,10 +1,9 @@
-import { ItemsActionTypes, ItemsState } from "./types";
+import { ItemsActionTypes, ItemsState, ChangeProps } from "./types";
 import {
   decrementItem,
   deleteItem,
   incrementItem,
   restoreItems,
-  ChangeProps,
 } from "./ItemsSelectors";
 import { data } from "../../bin";
 import { notify } from "../../utils";

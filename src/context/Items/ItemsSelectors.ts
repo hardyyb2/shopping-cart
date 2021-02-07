@@ -1,17 +1,13 @@
-import { calculateTotalPriceAndItems, DataProps } from "../../utils";
+import {
+  calculateTotalPriceAndItems,
+  DataProps,
+  saveToLocalStorage,
+} from "../../utils";
+import { ChangeProps, ITEMS_KEY } from "./types";
 
 enum ChangeType {
   ADD = "add",
   SUBTRACT = "sub",
-}
-
-export interface ChangeProps {
-  items: DataProps[];
-  totalPrice: number;
-  totalItems: number;
-  totalNormalDiscount: number;
-  totalTypeDiscount: number;
-  orderTotal: number;
 }
 
 const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
@@ -35,7 +31,7 @@ const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
     return item;
   });
 
-  localStorage.setItem("items", JSON.stringify(newItems));
+  saveToLocalStorage(ITEMS_KEY, newItems);
 
   let priceItemsDiscount = calculateTotalPriceAndItems(newItems);
 
@@ -62,7 +58,7 @@ export const decrementItem = (
 export const deleteItem = (items: DataProps[], payload: any): ChangeProps => {
   let newItems = items.filter((item) => item.id !== payload);
 
-  localStorage.setItem("items", JSON.stringify(newItems));
+  saveToLocalStorage(ITEMS_KEY, newItems);
 
   let priceItemsDiscount = calculateTotalPriceAndItems(newItems);
 
@@ -73,7 +69,7 @@ export const deleteItem = (items: DataProps[], payload: any): ChangeProps => {
 };
 
 export const restoreItems = (items: DataProps[]): ChangeProps => {
-  localStorage.setItem("items", JSON.stringify(items));
+  saveToLocalStorage(ITEMS_KEY, items);
 
   let priceItemsDiscount = calculateTotalPriceAndItems(items);
 
