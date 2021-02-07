@@ -1,1 +1,1 @@
-export { calculateTotalPriceAndItems } from "./functions";
+export { calculateTotalPriceAndItems, notify } from "./functions";

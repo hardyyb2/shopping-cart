@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 import { TypeDiscountProps, TypeDiscounts } from "../constants";
 import { DataProps } from "../types";
 
@@ -36,4 +38,31 @@ export const calculateTotalPriceAndItems = (items: DataProps[]) => {
     totalTypeDiscount: parseFloat(totalTypeDiscount.toFixed(1)),
     orderTotal,
   };
+};
+
+export interface NotificationProps {
+  message: string;
+  type?: "info" | "warning" | "error" | "success" | "default" | "dark";
+  position?:
+    | "top-right"
+    | "top-center"
+    | "top-left"
+    | "bottom-right"
+    | "bottom-center"
+    | "bottom-left";
+  closeIn?: number;
+}
+
+export const notify = (props: NotificationProps) => {
+  const { message, type, position, closeIn } = props;
+  toast(message, {
+    type: type || "info",
+    position: position || "top-right",
+    autoClose: closeIn || 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+  });
 };
