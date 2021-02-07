@@ -5,6 +5,9 @@ const GlobalStyles = createGlobalStyle`
         --blue: #44A7FD;
         --size: 8px;
         --default-dimension: 50px;
+        --default-button-background : rgba(255, 255, 255, 1);
+        --default-button-color: var(--blue);
+        --default-button-border: var(--size);
     }
 	
     * {

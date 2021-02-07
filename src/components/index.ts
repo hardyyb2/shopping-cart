@@ -3,3 +3,4 @@ export { default as ItemGroup } from "./ItemGroup";
 export { default as Counter } from "./Counter";
 export { default as ItemTable } from "./ItemTable";
 export { default as OrderCard } from "./OrderCard";
+export { default as RestoreButton } from "./RestoreButton";

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 
 import { data } from "../bin";
 import { calculateTotalPriceAndItems, DataProps } from "../utils";
-import { ItemTable, OrderCard } from "../components";
+import { ItemTable, OrderCard, RestoreButton } from "../components";
 import { ItemsContext, itemTypes } from "../context/Items";
 
 import { HomeStyles } from "../styles";
@@ -55,6 +55,10 @@ const Home = () => {
     }
   }, []);
 
+  const handleRestoreItems = () => {
+    itemsDispatch({ type: itemTypes.RESTORE_ITEMS });
+  };
+
   return (
     <HomeWrapper>
       <HomeContainer>
@@ -64,6 +68,7 @@ const Home = () => {
           items={itemsState.items}
         />
         <OrderCard />
+        <RestoreButton onClick={handleRestoreItems} />
       </HomeContainer>
     </HomeWrapper>
   );

@@ -1,11 +1,18 @@
 import { ItemsActionTypes, ItemsState } from "./types";
-import { decrementItem, deleteItem, incrementItem } from "./ItemsSelectors";
+import {
+  decrementItem,
+  deleteItem,
+  incrementItem,
+  restoreItems,
+} from "./ItemsSelectors";
+import { data } from "../../bin";
 
 export const itemTypes = {
   SET_CART: "SET_CART",
   ADD_ITEM: "ADD_ITEM",
   SUBTRACT_ITEM: "SUBTRACT_ITEM",
   DELETE_ITEM: "DELETE_ITEM",
+  RESTORE_ITEMS: "RESTORE_ITEMS",
 };
 
 const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
@@ -96,6 +103,26 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
       }
       return {
         ...state,
+      };
+
+    case itemTypes.RESTORE_ITEMS:
+      const {
+        items,
+        totalPrice,
+        totalItems,
+        totalNormalDiscount,
+        totalTypeDiscount,
+        orderTotal,
+      } = restoreItems(data);
+
+      return {
+        ...state,
+        items,
+        totalPrice,
+        totalItems,
+        totalNormalDiscount,
+        totalTypeDiscount,
+        orderTotal,
       };
 
     default:

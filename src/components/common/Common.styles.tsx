@@ -41,3 +41,26 @@ export const IconButton = styled.button<{ width?: number; height?: number }>`
   padding: 0px;
   background-color: transparent;
 `;
+
+interface ButtonProps {
+  width?: number;
+  height?: number;
+  background?: string;
+  color?: string;
+  borderColor?: string;
+  borderRadius?: number;
+}
+
+export const Button = styled.button<ButtonProps>`
+  width: ${({ width }) => (width ? `${width}px` : "auto")};
+  height: ${({ height }) => (height ? `${height}px` : "auto")};
+  border: ${({ color }) =>
+    color ? `1px solid ${color}` : "1px solid var(--default-button-color)"};
+  border-radius: ${({ borderRadius }) =>
+    borderRadius ? `${borderRadius}px` : "var(--default-button-border)"};
+  padding: var(--size) calc(var(--size) * 2);
+  background: ${({ background }) =>
+    background ? `${background}` : "var(--default-button-background)"};
+  color: ${({ color }) =>
+    color ? `${color}` : "var(--default-button-color)"}; ;
+`;

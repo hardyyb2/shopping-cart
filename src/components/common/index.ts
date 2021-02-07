@@ -5,4 +5,5 @@ export {
   Flex,
   SpaceBetweenFlex,
   CenterFlex,
+  Button,
 } from "./Common.styles";

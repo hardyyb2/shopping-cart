@@ -91,3 +91,24 @@ export const deleteItem = (items: DataProps[], payload: any): ChangeProps => {
     orderTotal,
   };
 };
+
+export const restoreItems = (items: DataProps[]): ChangeProps => {
+  localStorage.setItem("items", JSON.stringify(items));
+
+  let {
+    totalItems,
+    totalPrice,
+    totalNormalDiscount,
+    totalTypeDiscount,
+    orderTotal,
+  } = calculateTotalPriceAndItems(items);
+
+  return {
+    items,
+    totalPrice,
+    totalItems,
+    totalNormalDiscount,
+    totalTypeDiscount,
+    orderTotal,
+  };
+};
