@@ -6,6 +6,7 @@ import {
   restoreItems,
 } from "./ItemsSelectors";
 import { data } from "../../bin";
+import { notify } from "../../utils";
 
 export const itemTypes = {
   SET_CART: "SET_CART",
@@ -91,6 +92,8 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
           orderTotal,
         } = deleteItem(state.items, payload);
 
+        notify({ message: `Deleted Item` });
+
         return {
           ...state,
           items,
@@ -114,6 +117,8 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
         totalTypeDiscount,
         orderTotal,
       } = restoreItems(data);
+
+      notify({ message: "Restored Items" });
 
       return {
         ...state,

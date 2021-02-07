@@ -58,7 +58,7 @@ export const notify = (props: NotificationProps) => {
   toast(message, {
     type: type || "info",
     position: position || "top-right",
-    autoClose: closeIn || 5000,
+    autoClose: closeIn || 4000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
