@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
-import { Flex } from "../../components/common";
-
 const HomeWrapper = styled.div``;
 
-const HomeContainer = styled(Flex)``;
+const HomeContainer = styled.div``;
 
 const HomeStyles = {
   HomeWrapper,

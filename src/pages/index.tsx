@@ -58,12 +58,12 @@ const Home = () => {
   return (
     <HomeWrapper>
       <HomeContainer>
+        <OrderCard />
         <ItemTable
           title={TABLE_HEADER}
           headers={ItemTableHeaders}
           items={itemsState.items}
         />
-        <OrderCard />
         <RestoreButton onClick={handleRestoreItems} />
       </HomeContainer>
     </HomeWrapper>

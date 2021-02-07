@@ -24,7 +24,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ title, price }) => (
   <PriceContainer>
     <ItemName>{title}</ItemName>
     <ItemPrice>
-      {Currency.dollars}
+      {Currency.current}
       {price}
     </ItemPrice>
   </PriceContainer>
@@ -37,20 +37,20 @@ const OrderCard: React.FC<{}> = () => {
     <CardWrapper>
       <CardContainer>
         <TitleContainer>
-          <Title></Title>
+          <Title>Total</Title>
         </TitleContainer>
         <PriceWrapper>
           <PriceCard
             title={`Items (${itemsState.totalItems})`}
             price={itemsState.totalPrice}
           />
-        </PriceWrapper>
-        <TotalContainer>
           <PriceCard title="Discount" price={itemsState.totalNormalDiscount} />
           <PriceCard
             title="Type Discount"
             price={itemsState.totalTypeDiscount}
           />
+        </PriceWrapper>
+        <TotalContainer>
           <PriceCard title="Order Total" price={itemsState.orderTotal} />
         </TotalContainer>
       </CardContainer>
