@@ -68,3 +68,26 @@ export const decrementItem = (
 ): ChangeProps => {
   return setItems(items, payload, ChangeType.SUBTRACT);
 };
+
+export const deleteItem = (items: DataProps[], payload: any): ChangeProps => {
+  let newItems = items.filter((item) => item.id !== payload);
+
+  localStorage.setItem("items", JSON.stringify(newItems));
+
+  let {
+    totalItems,
+    totalPrice,
+    totalNormalDiscount,
+    totalTypeDiscount,
+    orderTotal,
+  } = calculateTotalPriceAndItems(newItems);
+
+  return {
+    items: newItems,
+    totalPrice,
+    totalItems,
+    totalNormalDiscount,
+    totalTypeDiscount,
+    orderTotal,
+  };
+};

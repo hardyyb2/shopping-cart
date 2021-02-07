@@ -1,10 +1,11 @@
 import { ItemsActionTypes, ItemsState } from "./types";
-import { decrementItem, incrementItem } from "./ItemsSelectors";
+import { decrementItem, deleteItem, incrementItem } from "./ItemsSelectors";
 
 export const itemTypes = {
   SET_CART: "SET_CART",
   ADD_ITEM: "ADD_ITEM",
   SUBTRACT_ITEM: "SUBTRACT_ITEM",
+  DELETE_ITEM: "DELETE_ITEM",
 };
 
 const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
@@ -57,6 +58,31 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
           totalTypeDiscount,
           orderTotal,
         } = decrementItem(state.items, payload);
+
+        return {
+          ...state,
+          items,
+          totalPrice,
+          totalItems,
+          totalNormalDiscount,
+          totalTypeDiscount,
+          orderTotal,
+        };
+      }
+      return {
+        ...state,
+      };
+
+    case itemTypes.DELETE_ITEM:
+      if (state.items) {
+        const {
+          items,
+          totalPrice,
+          totalItems,
+          totalNormalDiscount,
+          totalTypeDiscount,
+          orderTotal,
+        } = deleteItem(state.items, payload);
 
         return {
           ...state,

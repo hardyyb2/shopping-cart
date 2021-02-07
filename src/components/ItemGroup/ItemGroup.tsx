@@ -28,7 +28,7 @@ const ItemGroup: React.FC<IProps> = ({
     <GroupWrapper>
       <GroupContainer>
         <ItemTileContainer>
-          <ItemTile title={title} imgSrc={imgSrc} />
+          <ItemTile id={id} title={title} imgSrc={imgSrc} />
         </ItemTileContainer>
         <CounterContainer>
           <Counter quantity={quantity} id={id} />
