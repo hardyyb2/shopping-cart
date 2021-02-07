@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { ButtonProps } from "../../utils";
+
 export const Flex = styled.div`
   display: flex;
 `;
@@ -41,15 +43,6 @@ export const IconButton = styled.button<{ width?: number; height?: number }>`
   padding: 0px;
   background-color: transparent;
 `;
-
-interface ButtonProps {
-  width?: number;
-  height?: number;
-  background?: string;
-  color?: string;
-  borderColor?: string;
-  borderRadius?: number;
-}
 
 export const Button = styled.button<ButtonProps>`
   width: ${({ width }) => (width ? `${width}px` : "auto")};

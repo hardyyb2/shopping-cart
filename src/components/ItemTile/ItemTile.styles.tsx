@@ -1,13 +1,10 @@
 import styled from "styled-components";
 
+import { SpaceBetweenFlex } from "../common";
+
 export const TileWrapper = styled.div``;
 
-export const TileContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
+export const TileContainer = styled(SpaceBetweenFlex)``;
 
 export const TitleContainer = styled.div`
   width: auto;

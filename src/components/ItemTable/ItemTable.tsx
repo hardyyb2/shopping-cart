@@ -15,7 +15,7 @@ import {
 interface IProps {
   title: string;
   items: DataProps[] | null;
-  headers: string[];
+  headers: string[] | null;
 }
 
 const ItemTable: React.FC<IProps> = ({ title, headers, items }) => {

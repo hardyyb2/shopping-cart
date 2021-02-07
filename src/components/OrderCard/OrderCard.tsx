@@ -30,9 +30,7 @@ const PriceCard: React.FC<PriceCardProps> = ({ title, price }) => (
   </PriceContainer>
 );
 
-interface OrderCardProps {}
-
-const OrderCard: React.FC<OrderCardProps> = () => {
+const OrderCard: React.FC<{}> = () => {
   const [itemsState] = useContext(ItemsContext);
 
   return (
