@@ -5,7 +5,7 @@ enum ChangeType {
   SUBTRACT = "sub",
 }
 
-interface ChangeProps {
+export interface ChangeProps {
   items: DataProps[];
   totalPrice: number;
   totalItems: number;
@@ -37,21 +37,11 @@ const setItems = (items: DataProps[], payload: any, type: ChangeType) => {
 
   localStorage.setItem("items", JSON.stringify(newItems));
 
-  let {
-    totalItems,
-    totalPrice,
-    totalNormalDiscount,
-    totalTypeDiscount,
-    orderTotal,
-  } = calculateTotalPriceAndItems(newItems);
+  let priceItemsDiscount = calculateTotalPriceAndItems(newItems);
 
   return {
     items: newItems,
-    totalPrice,
-    totalItems,
-    totalNormalDiscount,
-    totalTypeDiscount,
-    orderTotal,
+    ...priceItemsDiscount,
   };
 };
 
@@ -74,41 +64,21 @@ export const deleteItem = (items: DataProps[], payload: any): ChangeProps => {
 
   localStorage.setItem("items", JSON.stringify(newItems));
 
-  let {
-    totalItems,
-    totalPrice,
-    totalNormalDiscount,
-    totalTypeDiscount,
-    orderTotal,
-  } = calculateTotalPriceAndItems(newItems);
+  let priceItemsDiscount = calculateTotalPriceAndItems(newItems);
 
   return {
     items: newItems,
-    totalPrice,
-    totalItems,
-    totalNormalDiscount,
-    totalTypeDiscount,
-    orderTotal,
+    ...priceItemsDiscount,
   };
 };
 
 export const restoreItems = (items: DataProps[]): ChangeProps => {
   localStorage.setItem("items", JSON.stringify(items));
 
-  let {
-    totalItems,
-    totalPrice,
-    totalNormalDiscount,
-    totalTypeDiscount,
-    orderTotal,
-  } = calculateTotalPriceAndItems(items);
+  let priceItemsDiscount = calculateTotalPriceAndItems(items);
 
   return {
     items,
-    totalPrice,
-    totalItems,
-    totalNormalDiscount,
-    totalTypeDiscount,
-    orderTotal,
+    ...priceItemsDiscount,
   };
 };

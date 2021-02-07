@@ -4,6 +4,7 @@ import {
   deleteItem,
   incrementItem,
   restoreItems,
+  ChangeProps,
 } from "./ItemsSelectors";
 import { data } from "../../bin";
 import { notify } from "../../utils";
@@ -23,33 +24,16 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
     case itemTypes.SET_CART:
       return {
         ...state,
-        items: payload.items,
-        totalPrice: payload.totalPrice,
-        totalItems: payload.totalItems,
-        totalNormalDiscount: payload.totalNormalDiscount,
-        totalTypeDiscount: payload.totalTypeDiscount,
-        orderTotal: payload.orderTotal,
+        ...payload,
       };
 
     case itemTypes.ADD_ITEM:
       if (state.items) {
-        let {
-          items,
-          totalPrice,
-          totalItems,
-          totalNormalDiscount,
-          totalTypeDiscount,
-          orderTotal,
-        } = incrementItem(state.items, payload);
+        const newState: ChangeProps = incrementItem(state.items, payload);
 
         return {
           ...state,
-          items,
-          totalPrice,
-          totalItems,
-          totalNormalDiscount,
-          totalTypeDiscount,
-          orderTotal,
+          ...newState,
         };
       }
       return {
@@ -58,23 +42,11 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
 
     case itemTypes.SUBTRACT_ITEM:
       if (state.items) {
-        let {
-          items,
-          totalPrice,
-          totalItems,
-          totalNormalDiscount,
-          totalTypeDiscount,
-          orderTotal,
-        } = decrementItem(state.items, payload);
+        const newState: ChangeProps = decrementItem(state.items, payload);
 
         return {
           ...state,
-          items,
-          totalPrice,
-          totalItems,
-          totalNormalDiscount,
-          totalTypeDiscount,
-          orderTotal,
+          ...newState,
         };
       }
       return {
@@ -83,25 +55,13 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
 
     case itemTypes.DELETE_ITEM:
       if (state.items) {
-        const {
-          items,
-          totalPrice,
-          totalItems,
-          totalNormalDiscount,
-          totalTypeDiscount,
-          orderTotal,
-        } = deleteItem(state.items, payload);
+        const newState: ChangeProps = deleteItem(state.items, payload);
 
         notify({ message: `Deleted Item` });
 
         return {
           ...state,
-          items,
-          totalPrice,
-          totalItems,
-          totalNormalDiscount,
-          totalTypeDiscount,
-          orderTotal,
+          ...newState,
         };
       }
       return {
@@ -109,25 +69,13 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
       };
 
     case itemTypes.RESTORE_ITEMS:
-      const {
-        items,
-        totalPrice,
-        totalItems,
-        totalNormalDiscount,
-        totalTypeDiscount,
-        orderTotal,
-      } = restoreItems(data);
+      const newState: ChangeProps = restoreItems(data);
 
       notify({ message: "Restored Items" });
 
       return {
         ...state,
-        items,
-        totalPrice,
-        totalItems,
-        totalNormalDiscount,
-        totalTypeDiscount,
-        orderTotal,
+        ...newState,
       };
 
     default:
