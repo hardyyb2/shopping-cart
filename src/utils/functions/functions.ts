@@ -1,13 +1,19 @@
 import { toast } from "react-toastify";
 
 import { TypeDiscountProps, TypeDiscounts } from "../constants";
-import { DataProps } from "../types";
+import { DataProps, NotificationProps } from "../types";
 
-export const isTypeDiscountedAndValue = (
+const isTypeDiscountedAndValue = (
   item: DataProps
 ): TypeDiscountProps | undefined => {
   return TypeDiscounts.find((discount) => discount.type === item.type);
 };
+
+const calcNormalDiscount = (item: DataProps) =>
+  (item.discount * item.price * item.quantity) / 100;
+
+const calcTypeDiscount = (item: DataProps, typeDiscounted: TypeDiscountProps) =>
+  (typeDiscounted.discount * item.price * item.quantity) / 100;
 
 export const calculateTotalPriceAndItems = (items: DataProps[]) => {
   let totalPrice = 0,
@@ -20,12 +26,11 @@ export const calculateTotalPriceAndItems = (items: DataProps[]) => {
     items.forEach((item) => {
       totalPrice += item.price * item.quantity;
       totalItems += item.quantity;
-      totalNormalDiscount += (item.discount * item.price * item.quantity) / 100;
+      totalNormalDiscount += calcNormalDiscount(item);
 
       let typeDiscounted = isTypeDiscountedAndValue(item);
       if (typeDiscounted) {
-        totalTypeDiscount +=
-          (typeDiscounted.discount * item.price * item.quantity) / 100;
+        totalTypeDiscount += calcTypeDiscount(item, typeDiscounted);
       }
     });
 
@@ -39,19 +44,6 @@ export const calculateTotalPriceAndItems = (items: DataProps[]) => {
     orderTotal,
   };
 };
-
-export interface NotificationProps {
-  message: string;
-  type?: "info" | "warning" | "error" | "success" | "default" | "dark";
-  position?:
-    | "top-right"
-    | "top-center"
-    | "top-left"
-    | "bottom-right"
-    | "bottom-center"
-    | "bottom-left";
-  closeIn?: number;
-}
 
 export const notify = (props: NotificationProps) => {
   const { message, type, position, closeIn } = props;

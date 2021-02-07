@@ -9,7 +9,7 @@ const Routes: React.FC<{}> = () => {
   return (
     <Switch>
       <Suspense fallback={<Spinner />}>
-        <Route exact path="/" component={Home} />
+        <Route path="/" component={Home} />
       </Suspense>
     </Switch>
   );

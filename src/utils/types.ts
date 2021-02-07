@@ -1,3 +1,5 @@
+import { NotificationTypes, NotificationPositions } from "./constants";
+
 export interface DataProps {
   id: number;
   name: string;
@@ -15,4 +17,11 @@ export interface ButtonProps {
   color?: string;
   borderColor?: string;
   borderRadius?: number;
+}
+
+export interface NotificationProps {
+  message: string;
+  type?: NotificationTypes;
+  position?: NotificationPositions;
+  closeIn?: number;
 }

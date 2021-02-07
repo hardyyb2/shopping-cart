@@ -1,19 +1,20 @@
 import { useContext, useEffect } from "react";
 
-import { data } from "../bin";
+import { ItemTable, OrderCard, RestoreButton } from "../components";
 import {
   calculateTotalPriceAndItems,
   DataProps,
   getFromLocalStorage,
+  ItemTableHeaders,
   saveToLocalStorage,
 } from "../utils";
-import { ItemTable, OrderCard, RestoreButton } from "../components";
 import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
+import { data } from "../bin";
 
 import { HomeStyles } from "../styles";
 const { HomeWrapper, HomeContainer } = HomeStyles;
 
-const LOCALSTORAGE_ITEMS_KEY = "items";
+const TABLE_HEADER = "Shopping Cart";
 
 const Home = () => {
   const [itemsState, itemsDispatch] = useContext(ItemsContext);
@@ -58,8 +59,8 @@ const Home = () => {
     <HomeWrapper>
       <HomeContainer>
         <ItemTable
-          title={"Shopping Cart"}
-          headers={["test"]}
+          title={TABLE_HEADER}
+          headers={ItemTableHeaders}
           items={itemsState.items}
         />
         <OrderCard />
