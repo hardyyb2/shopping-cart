@@ -12,4 +12,5 @@ export const CounterContainer = styled(SpaceBetweenFlex)`
 
 export const CountCountainer = styled.div`
   padding: 0px var(--size);
+  font-family: var(--number-font);
 `;

@@ -14,8 +14,11 @@ export const ItemTileContainer = styled.div`
 
 export const CounterContainer = styled.div`
   flex: 0 1 20%;
+  padding: 0px var(--size);
 `;
 
 export const PriceContainer = styled.div`
   flex: 0 1 20%;
+  font-family: var(--number-font);
+  font-weight: bold;
 `;
