@@ -1,5 +1,5 @@
 import { ImageContainer, Image, IconButton } from "../common";
-import { DeleteIcon } from "../../assets";
+import { DefaultImage, DeleteIcon } from "../../assets";
 
 import { TileWrapper, TileContainer, TitleContainer } from "./ItemTile.styles";
 
@@ -21,7 +21,7 @@ const ItemTile: React.FC<IProps> = ({ imgSrc, title, handleDeleteItem }) => {
       <TileContainer>
         <ImageContainer width={Dimensions.IMAGE_CONTAINER_WIDTH}>
           <Image
-            src={imgSrc}
+            src={imgSrc || DefaultImage}
             alt={title}
             borderRadius={Dimensions.IMAGE_BORDER_RADIUS}
           />
