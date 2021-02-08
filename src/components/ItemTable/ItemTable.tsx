@@ -10,6 +10,7 @@ import {
   TableHeader,
   RowsContainer,
   Row,
+  NoItemsContainer,
 } from "./ItemTable.styles";
 
 interface IProps {
@@ -17,6 +18,9 @@ interface IProps {
   items: DataProps[] | null;
   headers: string[] | null;
 }
+
+const NO_ITEMS_TEXT = `No Items. Click on Restore Items to get all items
+`;
 
 const ItemTable: React.FC<IProps> = ({ title, headers, items }) => {
   return (
@@ -32,7 +36,7 @@ const ItemTable: React.FC<IProps> = ({ title, headers, items }) => {
             ))}
         </TableHeadersContainer>
         <RowsContainer>
-          {items &&
+          {items && items.length ? (
             items.map((item: DataProps, index: number) => (
               <Row key={index}>
                 <ItemGroup
@@ -43,7 +47,10 @@ const ItemTable: React.FC<IProps> = ({ title, headers, items }) => {
                   quantity={item.quantity}
                 />
               </Row>
-            ))}
+            ))
+          ) : (
+            <NoItemsContainer>{NO_ITEMS_TEXT}</NoItemsContainer>
+          )}
         </RowsContainer>
       </TableContainer>
     </TableWrapper>

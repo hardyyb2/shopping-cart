@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
         --black: #03254C;
         --gray: #707070;
         --white: #f5f5f5;
+        --off-black:  rgba(112,112,112,0.5);
         --light-gray: rgba(112,112,112,0.12);
         --size: 8px;
         --default-dimension: 50px;

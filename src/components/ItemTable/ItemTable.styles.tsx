@@ -81,3 +81,8 @@ export const Row = styled.div`
     padding: var(--size) 0px;
   }
 `;
+
+export const NoItemsContainer = styled.div`
+  padding: calc(var(--size) * 2);
+  color: var(--off-black);
+`;
