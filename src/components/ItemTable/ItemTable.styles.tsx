@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { Flex } from "../common";
 
 export const TableWrapper = styled.div`
-  max-width: 700px;
-  margin: auto;
+  width: 700px;
+  margin: 0px calc(var(--size) * 4) calc(var(--size) * 3);
   box-shadow: var(--box-shadow);
   border-radius: calc(var(--size) * 5);
   padding: calc(var(--size) * 5);
-  margin-bottom: calc(var(--size) * 3);
+
+  @media (max-width: 960px) {
+    width: 95%;
+  }
 `;
 
 export const TableContainer = styled(Flex)`

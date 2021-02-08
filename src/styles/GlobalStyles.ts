@@ -41,6 +41,13 @@ const GlobalStyles = createGlobalStyle`
 	    border-radius: 10px;
 	    background: var(--blue);
 	}  
+
+    @media (max-width: 720px) {
+        :root {
+            --size: 6px;
+        }
+    }
+  
 `;
 
 export default GlobalStyles;

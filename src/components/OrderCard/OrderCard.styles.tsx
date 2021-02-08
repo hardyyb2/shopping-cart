@@ -3,11 +3,18 @@ import styled from "styled-components";
 import { Flex, SpaceBetweenFlex } from "../common";
 
 export const CardWrapper = styled.div`
-  margin: calc(var(--size) * 5) auto;
-  max-width: 300px;
+  width: 300px;
   box-shadow: var(--box-shadow);
   border-radius: calc(var(--size) * 3);
   padding: calc(var(--size) * 3);
+  margin-right: calc(var(--size) * 3);
+  margin-bottom: calc(var(--size) * 5);
+
+  @media (max-width: 600px) {
+    width: 92%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 `;
 
 export const CardContainer = styled(Flex)`
@@ -33,10 +40,19 @@ export const PriceContainer = styled(SpaceBetweenFlex)`
   padding-bottom: var(--size);
 `;
 
-export const ItemName = styled.div``;
+export const ItemName = styled.div`
+  font-size: calc(var(--size) * 2);
+  @media (max-width: 720px) {
+    font-size: calc(var(--size) * 2.5);
+  }
+`;
 
 export const ItemPrice = styled.div`
   font-family: var(--number-font);
+  font-size: calc(var(--size) * 2);
+  @media (max-width: 720px) {
+    font-size: calc(var(--size) * 2.5);
+  }
 `;
 
 export const TotalContainer = styled(SpaceBetweenFlex)`

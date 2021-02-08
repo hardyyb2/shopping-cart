@@ -15,8 +15,14 @@ const RestoreButtonContainer = styled.div`
 `;
 
 const FlexContainer = styled(Flex)`
-  flex-direction: column;
   width: 100%;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  justify-content: center;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const HomeStyles = {
