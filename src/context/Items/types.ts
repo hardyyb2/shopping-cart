@@ -24,5 +24,3 @@ export interface ChangeProps {
   totalTypeDiscount: number;
   orderTotal: number;
 }
-
-export const ITEMS_KEY = "items";

@@ -3,7 +3,8 @@ import {
   DataProps,
   saveToLocalStorage,
 } from "../../utils";
-import { ChangeProps, ITEMS_KEY } from "./types";
+import { ChangeProps } from "./types";
+import { ITEMS_KEY } from "./constants";
 
 enum ChangeType {
   ADD = "add",
