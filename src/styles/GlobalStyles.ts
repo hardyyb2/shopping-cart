@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
         --blue: #44A7FD;
         --black: #03254C;
         --gray: #707070;
-        --light-gray: rgba(112,112,112,0.18);
+        --light-gray: rgba(112,112,112,0.12);
         --size: 8px;
         --default-dimension: 50px;
         --default-button-background : rgba(255, 255, 255, 1);
