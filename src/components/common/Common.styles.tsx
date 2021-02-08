@@ -56,6 +56,7 @@ export const IconButton = styled.button<{ width?: number; height?: number }>`
 
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.2;
   }
 
   @media (max-width: 360px) {
