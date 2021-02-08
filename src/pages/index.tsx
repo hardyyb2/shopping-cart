@@ -11,7 +11,7 @@ import {
 import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
 import { itemData } from "../bin/data";
 
-import { HomeStyles } from "../styles";
+import { HomeStyles } from "../styles/PageStyles";
 const {
   HomeWrapper,
   HomeContainer,
