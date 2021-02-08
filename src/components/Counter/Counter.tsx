@@ -13,6 +13,11 @@ interface IProps {
   handleSubtractItem: () => void;
 }
 
+enum ImageAltText {
+  DECREASE = "decrease",
+  INCREASE = "increase",
+}
+
 const Counter: React.FC<IProps> = ({
   quantity,
   handleAddItem,
@@ -26,11 +31,11 @@ const Counter: React.FC<IProps> = ({
           disabled={!quantity}
           onClick={handleSubtractItem}
         >
-          <Image src={MinusIcon} alt={"decrease"} />
+          <Image src={MinusIcon} alt={ImageAltText.DECREASE} />
         </IconButton>
         <CountCountainer>{quantity}</CountCountainer>
         <IconButton width={20} onClick={handleAddItem}>
-          <Image src={PlusIcon} alt={"increase"} />
+          <Image src={PlusIcon} alt={ImageAltText.INCREASE} />
         </IconButton>
       </CounterContainer>
     </CounterWrapper>

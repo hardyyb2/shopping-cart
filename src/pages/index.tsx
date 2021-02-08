@@ -7,12 +7,12 @@ import {
   saveToLocalStorage,
 } from "../utils/functions";
 import { DataProps } from "../utils/types";
-import { ItemTableHeaders } from "../utils/constants";
 
 import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
 import { itemData } from "../bin/data";
 
 import { HomeStyles } from "../styles/PageStyles";
+
 const {
   HomeWrapper,
   HomeContainer,
@@ -20,7 +20,19 @@ const {
   FlexContainer,
 } = HomeStyles;
 
-const TABLE_HEADER = "Shopping Cart";
+enum TableHeaders {
+  ITEMS = "Items",
+  QUANTITY = "Quantity",
+  PRICE = "Price",
+}
+
+const ItemTableHeaders = [
+  TableHeaders.ITEMS,
+  TableHeaders.QUANTITY,
+  TableHeaders.PRICE,
+];
+
+const TABLE_TITLE = "Shopping Cart";
 
 const Home = () => {
   const [itemsState, itemsDispatch] = useContext(ItemsContext);
@@ -70,7 +82,7 @@ const Home = () => {
         <FlexContainer>
           <OrderCard />
           <ItemTable
-            title={TABLE_HEADER}
+            title={TABLE_TITLE}
             headers={ItemTableHeaders}
             items={itemsState.items}
           />

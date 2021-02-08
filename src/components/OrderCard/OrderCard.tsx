@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { Currency } from "../../utils/constants";
+import { Currency, PriceTypes } from "../constants";
 import { ItemsContext } from "../../context/Items";
 
 import {
@@ -14,11 +14,6 @@ import {
   TitleContainer,
   TotalContainer,
 } from "./OrderCard.styles";
-
-enum PriceTypes {
-  NEGATIVE = "- ",
-  POSITIVE = "+ ",
-}
 
 interface PriceCardProps {
   title: string;

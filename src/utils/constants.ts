@@ -1,8 +1,3 @@
-export enum Currency {
-  current = "$",
-  dollars = "$",
-}
-
 export interface TypeDiscountProps {
   type: string;
   discount: number;
@@ -13,18 +8,6 @@ export const TypeDiscounts: TypeDiscountProps[] = [
     type: "fiction",
     discount: 15,
   },
-];
-
-enum TableHeaders {
-  ITEMS = "Items",
-  QUANTITY = "Quantity",
-  PRICE = "Price",
-}
-
-export const ItemTableHeaders = [
-  TableHeaders.ITEMS,
-  TableHeaders.QUANTITY,
-  TableHeaders.PRICE,
 ];
 
 export enum NotificationTypes {
