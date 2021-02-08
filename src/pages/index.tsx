@@ -12,7 +12,7 @@ import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
 import { data } from "../bin";
 
 import { HomeStyles } from "../styles";
-const { HomeWrapper, HomeContainer } = HomeStyles;
+const { HomeWrapper, HomeContainer, RestoreButtonContainer } = HomeStyles;
 
 const TABLE_HEADER = "Shopping Cart";
 
@@ -58,13 +58,15 @@ const Home = () => {
   return (
     <HomeWrapper>
       <HomeContainer>
+        <RestoreButtonContainer>
+          <RestoreButton onClick={handleRestoreItems} />
+        </RestoreButtonContainer>
         <OrderCard />
         <ItemTable
           title={TABLE_HEADER}
           headers={ItemTableHeaders}
           items={itemsState.items}
         />
-        <RestoreButton onClick={handleRestoreItems} />
       </HomeContainer>
     </HomeWrapper>
   );
