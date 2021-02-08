@@ -1,5 +1,5 @@
 import { ImageContainer, Image, IconButton } from "../common";
-import { DefaultImage, DeleteIcon } from "../../assets";
+import { DefaultImage, DeleteIcon } from "../../assets/images";
 
 import { TileWrapper, TileContainer, TitleContainer } from "./ItemTile.styles";
 

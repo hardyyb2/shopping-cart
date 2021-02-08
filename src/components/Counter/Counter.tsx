@@ -1,5 +1,5 @@
 import { IconButton, Image } from "../common";
-import { MinusIcon, PlusIcon } from "../../assets";
+import { MinusIcon, PlusIcon } from "../../assets/images";
 
 import {
   CountCountainer,
