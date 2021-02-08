@@ -1,3 +1,32 @@
+## DETAILS
+
+### Website :
+
+[Live (https://shoppingcarthardik.netlify.app/)](https://shoppingcarthardik.netlify.app/)  
+[Github Repo (https://github.com/hardyyb2/shopping-cart)](https://github.com/hardyyb2/shopping-cart)
+
+**Code Attached as .zip file including build folder.**
+
+## Instructions to run code (from root) :
+
+### Method 1
+
+- Install dependencies using npm or yarn with commands
+  - npm install OR yarn
+- Once installed, run using
+  - npm start OR yarn start
+
+### Method 2
+
+- build folder is included in .zip file
+- add serve globally to your system using
+  - yarn add global serve OR npm install -g serve
+- serve using
+  - serve -s build
+- If no build folder is present, build using command
+  - npm run build OR yarn build
+- Serve with serve OR run start command
+
 ### Read README.md in each directory for more details
 
 ## Available Scripts
