@@ -15,15 +15,26 @@ import {
   TotalContainer,
 } from "./OrderCard.styles";
 
+enum PriceTypes {
+  NEGATIVE = "- ",
+  POSITIVE = "+ ",
+}
+
 interface PriceCardProps {
   title: string;
   price: number;
+  type?: PriceTypes;
 }
 
-const PriceCard: React.FC<PriceCardProps> = ({ title, price }) => (
+const PriceCard: React.FC<PriceCardProps> = ({
+  title,
+  price,
+  type = PriceTypes.POSITIVE,
+}) => (
   <PriceContainer>
     <ItemName>{title}</ItemName>
     <ItemPrice>
+      {type === PriceTypes.NEGATIVE && PriceTypes.NEGATIVE}
       {Currency.current}
       {price}
     </ItemPrice>
@@ -44,10 +55,15 @@ const OrderCard: React.FC<{}> = () => {
             title={`Items (${itemsState.totalItems})`}
             price={itemsState.totalPrice}
           />
-          <PriceCard title="Discount" price={itemsState.totalNormalDiscount} />
+          <PriceCard
+            title="Discount"
+            price={itemsState.totalNormalDiscount}
+            type={PriceTypes.NEGATIVE}
+          />
           <PriceCard
             title="Type Discount"
             price={itemsState.totalTypeDiscount}
+            type={PriceTypes.NEGATIVE}
           />
         </PriceWrapper>
         <TotalContainer>
