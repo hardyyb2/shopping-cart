@@ -1,5 +1,8 @@
+import { useContext } from "react";
+
 import { ItemTile, Counter } from "../";
 import { Currency } from "../../utils";
+import { ItemsContext, itemTypes } from "../../context/Items";
 
 import {
   CounterContainer,
@@ -24,14 +27,36 @@ const ItemGroup: React.FC<IProps> = ({
   price,
   quantity,
 }) => {
+  const [_, itemsDispatch] = useContext(ItemsContext);
+
+  const handleAddItem = (itemId: number) => {
+    itemsDispatch({ type: itemTypes.ADD_ITEM, payload: itemId });
+  };
+
+  const handleSubtractItem = (itemId: number) => {
+    itemsDispatch({ type: itemTypes.SUBTRACT_ITEM, payload: itemId });
+  };
+
+  const handleDeleteItem = (itemId: number) => {
+    itemsDispatch({ type: itemTypes.DELETE_ITEM, payload: itemId });
+  };
+
   return (
     <GroupWrapper>
       <GroupContainer>
         <ItemTileContainer>
-          <ItemTile id={id} title={title} imgSrc={imgSrc} />
+          <ItemTile
+            title={title}
+            imgSrc={imgSrc}
+            handleDeleteItem={() => handleDeleteItem(id)}
+          />
         </ItemTileContainer>
         <CounterContainer>
-          <Counter quantity={quantity} id={id} />
+          <Counter
+            quantity={quantity}
+            handleAddItem={() => handleAddItem(id)}
+            handleSubtractItem={() => handleSubtractItem(id)}
+          />
         </CounterContainer>
         <PriceContainer>
           {Currency.current} {price}

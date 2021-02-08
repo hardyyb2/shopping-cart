@@ -1,24 +1,15 @@
-import { useContext } from "react";
-
 import { ImageContainer, Image, IconButton } from "../common";
 import { DeleteIcon } from "../../assets";
-import { ItemsContext, itemTypes } from "../../context/Items";
 
 import { TileWrapper, TileContainer, TitleContainer } from "./ItemTile.styles";
 
 interface IProps {
-  id: number;
   imgSrc?: string;
   title: string;
+  handleDeleteItem: () => void;
 }
 
-const ItemTile: React.FC<IProps> = ({ id, imgSrc, title }) => {
-  const [_, itemsDispatch] = useContext(ItemsContext);
-
-  const handleDelete = (itemId: number) => {
-    itemsDispatch({ type: itemTypes.DELETE_ITEM, payload: itemId });
-  };
-
+const ItemTile: React.FC<IProps> = ({ imgSrc, title, handleDeleteItem }) => {
   return (
     <TileWrapper>
       <TileContainer>
@@ -26,7 +17,7 @@ const ItemTile: React.FC<IProps> = ({ id, imgSrc, title }) => {
           <Image src={imgSrc} alt={title} />
         </ImageContainer>
         <TitleContainer>{title}</TitleContainer>
-        <IconButton width={30} onClick={() => handleDelete(id)}>
+        <IconButton width={30} onClick={handleDeleteItem}>
           <Image src={DeleteIcon} alt="delete" />
         </IconButton>
       </TileContainer>

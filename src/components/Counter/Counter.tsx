@@ -1,8 +1,5 @@
-import { useContext } from "react";
-
 import { IconButton, Image } from "../common";
 import { MinusIcon, PlusIcon } from "../../assets";
-import { ItemsContext, itemTypes } from "../../context/Items";
 
 import {
   CountCountainer,
@@ -11,29 +8,24 @@ import {
 } from "./Counter.styles";
 
 interface IProps {
-  id: number;
   quantity: number;
+  handleAddItem: () => void;
+  handleSubtractItem: () => void;
 }
 
-const Counter: React.FC<IProps> = ({ id, quantity }) => {
-  const [_, itemsDispatch] = useContext(ItemsContext);
-
-  const handleAddItem = (itemId: number) => {
-    itemsDispatch({ type: itemTypes.ADD_ITEM, payload: itemId });
-  };
-
-  const handleSubtractItem = (itemId: number) => {
-    itemsDispatch({ type: itemTypes.SUBTRACT_ITEM, payload: itemId });
-  };
-
+const Counter: React.FC<IProps> = ({
+  quantity,
+  handleAddItem,
+  handleSubtractItem,
+}) => {
   return (
     <CounterWrapper>
       <CounterContainer>
-        <IconButton width={20} onClick={() => handleSubtractItem(id)}>
+        <IconButton width={20} onClick={handleSubtractItem}>
           <Image src={MinusIcon} alt={"decrease"} />
         </IconButton>
         <CountCountainer>{quantity}</CountCountainer>
-        <IconButton width={20} onClick={() => handleAddItem(id)}>
+        <IconButton width={20} onClick={handleAddItem}>
           <Image src={PlusIcon} alt={"increase"} />
         </IconButton>
       </CounterContainer>
