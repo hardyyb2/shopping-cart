@@ -54,6 +54,10 @@ export const IconButton = styled.button<{ width?: number; height?: number }>`
   padding: 0px;
   background-color: transparent;
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   @media (max-width: 360px) {
     width: ${({ width }) =>
       width ? `calc(${width}px / 1.25)` : "var(--default-dimension)"};
@@ -73,6 +77,9 @@ export const Button = styled.button<ButtonProps>`
   padding: var(--size) calc(var(--size) * 2);
   background: ${({ background }) =>
     background ? `${background}` : "var(--default-button-background)"};
-  color: ${({ color }) =>
-    color ? `${color}` : "var(--default-button-color)"}; ;
+  color: ${({ color }) => (color ? `${color}` : "var(--default-button-color)")};
+
+  &:hover {
+    box-shadow: var(--button-shadow);
+  }
 `;

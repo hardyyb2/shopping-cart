@@ -14,11 +14,16 @@ const GlobalStyles = createGlobalStyle`
         --default-button-border: var(--size);
         --box-shadow-color: #D0EFFF;
 		--box-shadow: 0px 10px 20px var(--box-shadow-color);
+		--button-shadow: 0px 3px 6px var(--box-shadow-color);
     }
 	
     * {
         -webkit-tap-highlight-color: transparent;  
         box-sizing: border-box;
+    }
+
+    *:focus{
+        outline: none;
     }
 
     body {

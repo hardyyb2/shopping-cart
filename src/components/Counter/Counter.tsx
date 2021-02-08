@@ -21,7 +21,11 @@ const Counter: React.FC<IProps> = ({
   return (
     <CounterWrapper>
       <CounterContainer>
-        <IconButton width={20} onClick={handleSubtractItem}>
+        <IconButton
+          width={20}
+          disabled={!quantity}
+          onClick={handleSubtractItem}
+        >
           <Image src={MinusIcon} alt={"decrease"} />
         </IconButton>
         <CountCountainer>{quantity}</CountCountainer>
