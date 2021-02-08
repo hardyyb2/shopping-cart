@@ -8,6 +8,7 @@ export const TableWrapper = styled.div`
   box-shadow: var(--box-shadow);
   border-radius: calc(var(--size) * 5);
   padding: calc(var(--size) * 5);
+  margin-bottom: calc(var(--size) * 3);
 `;
 
 export const TableContainer = styled(Flex)`
