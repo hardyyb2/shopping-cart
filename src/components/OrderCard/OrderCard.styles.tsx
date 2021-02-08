@@ -50,6 +50,7 @@ export const ItemName = styled.div`
 export const ItemPrice = styled.div`
   font-family: var(--number-font);
   font-size: calc(var(--size) * 2);
+  letter-spacing: 0.5px;
   @media (max-width: 720px) {
     font-size: calc(var(--size) * 2.5);
   }

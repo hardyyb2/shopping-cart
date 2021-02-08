@@ -10,7 +10,10 @@ export const TableWrapper = styled.div`
   padding: calc(var(--size) * 5);
 
   @media (max-width: 960px) {
-    width: 95%;
+    width: 92%;
+  }
+  @media (max-width: 480px) {
+    padding: calc(var(--size) * 5) calc(var(--size) * 2);
   }
 `;
 
@@ -27,6 +30,9 @@ export const Title = styled.div`
   font-size: calc(var(--size) * 4);
   text-align: left;
   color: var(--black);
+  @media (max-width: 480px) {
+    font-size: calc(var(--size) * 3);
+  }
 `;
 
 export const TableHeadersContainer = styled(Flex)`
@@ -50,6 +56,18 @@ export const TableHeader = styled.div<{ width?: number }>`
   &:nth-child(3) {
     flex: 0 1 20%;
   }
+
+  @media (max-width: 480px) {
+    &:nth-child(1) {
+      flex: 0 1 50%;
+    }
+    &:nth-child(2) {
+      flex: 0 1 25%;
+    }
+    &:nth-child(3) {
+      flex: 0 1 25%;
+    }
+  }
 `;
 
 export const RowsContainer = styled(Flex)`
@@ -59,4 +77,7 @@ export const RowsContainer = styled(Flex)`
 export const Row = styled.div`
   padding: var(--size);
   border-bottom: 1px solid var(--light-gray);
+  @media (max-width: 480px) {
+    padding: var(--size) 0px;
+  }
 `;

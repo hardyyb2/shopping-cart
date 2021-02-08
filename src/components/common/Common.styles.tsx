@@ -25,6 +25,14 @@ export const ImageContainer = styled(Flex)<{ width?: number; height?: number }>`
     height ? `${height}px` : "var(--default-dimension)"};
   object-fit: cover;
   align-items: center;
+
+  @media (max-width: 360px) {
+    width: ${({ width }) =>
+      width ? `calc(${width}px / 1.25)` : "var(--default-dimension)"};
+
+    min-width: ${({ width }) =>
+      width ? `calc(${width}px / 1.25)}` : "var(--default-dimension)"};
+  }
 `;
 
 export const Image = styled.img<{ borderRadius?: number }>`
@@ -45,6 +53,14 @@ export const IconButton = styled.button<{ width?: number; height?: number }>`
   border: none;
   padding: 0px;
   background-color: transparent;
+
+  @media (max-width: 360px) {
+    width: ${({ width }) =>
+      width ? `calc(${width}px / 1.25)` : "var(--default-dimension)"};
+
+    min-width: ${({ width }) =>
+      width ? `calc(${width}px / 1.25)}` : "var(--default-dimension)"};
+  }
 `;
 
 export const Button = styled.button<ButtonProps>`
