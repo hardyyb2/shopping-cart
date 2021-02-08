@@ -1,6 +1,6 @@
-import { DataProps } from "../utils";
+import { DataProps } from "../../utils";
 
-export const data: DataProps[] = [
+const data: DataProps[] = [
   {
     id: 9090,
     name: "Item1",
@@ -74,3 +74,5 @@ export const data: DataProps[] = [
     img_url: "https://place-hold.it/40.jpg",
   },
 ];
+
+export default data;

@@ -5,7 +5,7 @@ import {
   incrementItem,
   restoreItems,
 } from "./ItemsSelectors";
-import { data } from "../../bin";
+import { itemData } from "../../bin/data";
 import { NotificationTypes, notify } from "../../utils";
 
 export const itemTypes = {
@@ -68,7 +68,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
       };
 
     case itemTypes.RESTORE_ITEMS:
-      const newState: ChangeProps = restoreItems(data);
+      const newState: ChangeProps = restoreItems(itemData);
 
       notify({ message: "Restored Items", type: NotificationTypes.SUCCESS });
 

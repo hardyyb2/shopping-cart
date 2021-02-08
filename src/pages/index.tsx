@@ -9,7 +9,7 @@ import {
   saveToLocalStorage,
 } from "../utils";
 import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
-import { data } from "../bin";
+import { itemData } from "../bin/data";
 
 import { HomeStyles } from "../styles";
 const {
@@ -25,7 +25,7 @@ const Home = () => {
   const [itemsState, itemsDispatch] = useContext(ItemsContext);
 
   const fetchAllItems = () => {
-    return data;
+    return itemData;
   };
 
   const fetchCart = () => {
