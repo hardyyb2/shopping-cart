@@ -6,7 +6,7 @@ import {
   restoreItems,
 } from "./ItemsSelectors";
 import { data } from "../../bin";
-import { notify } from "../../utils";
+import { NotificationTypes, notify } from "../../utils";
 
 export const itemTypes = {
   SET_CART: "SET_CART",
@@ -56,7 +56,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
       if (state.items) {
         const newState: ChangeProps = deleteItem(state.items, payload);
 
-        notify({ message: `Deleted Item` });
+        notify({ message: `Deleted Item`, type: NotificationTypes.ERROR });
 
         return {
           ...state,
@@ -70,7 +70,7 @@ const Reducer = (state: ItemsState, action: ItemsActionTypes) => {
     case itemTypes.RESTORE_ITEMS:
       const newState: ChangeProps = restoreItems(data);
 
-      notify({ message: "Restored Items" });
+      notify({ message: "Restored Items", type: NotificationTypes.SUCCESS });
 
       return {
         ...state,
