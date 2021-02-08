@@ -35,6 +35,7 @@ export const TableHeader = styled.div<{ width?: number }>`
   padding: var(--size);
   font-size: calc(var(--size) * 2);
   color: var(--blue);
+  font-weight: bold;
 
   &:nth-child(1) {
     flex: 0 1 60%;

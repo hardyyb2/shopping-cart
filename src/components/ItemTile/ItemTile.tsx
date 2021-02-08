@@ -9,15 +9,28 @@ interface IProps {
   handleDeleteItem: () => void;
 }
 
+enum Dimensions {
+  ICON_BUTTON_WIDTH = 30,
+  IMAGE_CONTAINER_WIDTH = 40,
+  IMAGE_BORDER_RADIUS = 8,
+}
+
 const ItemTile: React.FC<IProps> = ({ imgSrc, title, handleDeleteItem }) => {
   return (
     <TileWrapper>
       <TileContainer>
-        <ImageContainer width={40}>
-          <Image src={imgSrc} alt={title} />
+        <ImageContainer width={Dimensions.IMAGE_CONTAINER_WIDTH}>
+          <Image
+            src={imgSrc}
+            alt={title}
+            borderRadius={Dimensions.IMAGE_BORDER_RADIUS}
+          />
         </ImageContainer>
         <TitleContainer>{title}</TitleContainer>
-        <IconButton width={30} onClick={handleDeleteItem}>
+        <IconButton
+          width={Dimensions.ICON_BUTTON_WIDTH}
+          onClick={handleDeleteItem}
+        >
           <Image src={DeleteIcon} alt="delete" />
         </IconButton>
       </TileContainer>

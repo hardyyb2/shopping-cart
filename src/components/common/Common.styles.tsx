@@ -27,11 +27,13 @@ export const ImageContainer = styled(Flex)<{ width?: number; height?: number }>`
   align-items: center;
 `;
 
-export const Image = styled.img`
+export const Image = styled.img<{ borderRadius?: number }>`
   display: block;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
+  border-radius: ${({ borderRadius }) =>
+    borderRadius ? `${borderRadius}px` : 0};
 `;
 
 export const IconButton = styled.button<{ width?: number; height?: number }>`
