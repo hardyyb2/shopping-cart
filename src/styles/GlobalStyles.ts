@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
 	
     * {
         -webkit-tap-highlight-color: transparent;  
+        box-sizing: border-box;
     }
 
     body {
