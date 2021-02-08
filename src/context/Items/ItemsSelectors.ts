@@ -1,8 +1,9 @@
 import {
   calculateTotalPriceAndItems,
-  DataProps,
   saveToLocalStorage,
-} from "../../utils";
+} from "../../utils/functions";
+import { DataProps } from "../../utils/types";
+
 import { ChangeProps } from "./types";
 import { ITEMS_KEY } from "./constants";
 

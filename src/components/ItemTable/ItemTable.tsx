@@ -1,5 +1,5 @@
 import { ItemGroup } from "..";
-import { DataProps } from "../../utils";
+import { DataProps } from "../../utils/types";
 
 import {
   TableContainer,

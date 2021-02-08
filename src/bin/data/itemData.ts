@@ -1,4 +1,4 @@
-import { DataProps } from "../../utils";
+import { DataProps } from "../../utils/types";
 
 const data: DataProps[] = [
   {

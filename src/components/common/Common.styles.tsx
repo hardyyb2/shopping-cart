@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { ButtonProps } from "../../utils";
+import { ButtonProps } from "../../utils/types";
 
 export const Flex = styled.div`
   display: flex;

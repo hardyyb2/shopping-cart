@@ -3,11 +3,12 @@ import { useContext, useEffect } from "react";
 import { ItemTable, OrderCard, RestoreButton } from "../components";
 import {
   calculateTotalPriceAndItems,
-  DataProps,
   getFromLocalStorage,
-  ItemTableHeaders,
   saveToLocalStorage,
-} from "../utils";
+} from "../utils/functions";
+import { DataProps } from "../utils/types";
+import { ItemTableHeaders } from "../utils/constants";
+
 import { ItemsContext, itemTypes, ITEMS_KEY } from "../context/Items";
 import { itemData } from "../bin/data";
 

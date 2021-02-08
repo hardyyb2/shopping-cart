@@ -6,7 +6,8 @@ import {
   restoreItems,
 } from "./ItemsSelectors";
 import { itemData } from "../../bin/data";
-import { NotificationTypes, notify } from "../../utils";
+import { NotificationTypes } from "../../utils/constants";
+import { notify } from "../../utils/functions";
 
 export const itemTypes = {
   SET_CART: "SET_CART",

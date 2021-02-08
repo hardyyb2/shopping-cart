@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { Currency } from "../../utils";
+import { Currency } from "../../utils/constants";
 import { ItemsContext } from "../../context/Items";
 
 import {

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { ItemTile, Counter } from "../";
-import { Currency } from "../../utils";
+import { Currency } from "../../utils/constants";
 import { ItemsContext, itemTypes } from "../../context/Items";
 
 import {
