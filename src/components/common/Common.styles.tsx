@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-import { ButtonProps } from "../../utils/types";
+import {
+  ImageContainerProps,
+  ImageProps,
+  ButtonProps,
+  IconButtonProps,
+} from "./types";
 
 export const Flex = styled.div`
   display: flex;
@@ -16,7 +21,7 @@ export const CenterFlex = styled(Flex)`
   align-items: center;
 `;
 
-export const ImageContainer = styled(Flex)<{ width?: number; height?: number }>`
+export const ImageContainer = styled(Flex)<ImageContainerProps>`
   width: ${({ width }) => (width ? `${width}px` : "var(--default-dimension)")};
   min-width: ${({ width }) =>
     width ? `${width}px` : "var(--default-dimension)"};
@@ -35,7 +40,7 @@ export const ImageContainer = styled(Flex)<{ width?: number; height?: number }>`
   }
 `;
 
-export const Image = styled.img<{ borderRadius?: number }>`
+export const Image = styled.img<ImageProps>`
   display: block;
   width: 100%;
   max-width: 100%;
@@ -44,7 +49,7 @@ export const Image = styled.img<{ borderRadius?: number }>`
     borderRadius ? `${borderRadius}px` : 0};
 `;
 
-export const IconButton = styled.button<{ width?: number; height?: number }>`
+export const IconButton = styled.button<IconButtonProps>`
   width: ${({ width }) => (width ? `${width}px` : "var(--default-dimension)")};
   min-width: ${({ width }) =>
     width ? `${width}px` : "var(--default-dimension)"};
