@@ -1,6 +1,6 @@
+export { calculateTotalPriceAndItems, notify } from "./itemsContextFunctions";
+
 export {
-  calculateTotalPriceAndItems,
-  notify,
   saveToLocalStorage,
   getFromLocalStorage,
-} from "./functions";
+} from "./localStorageFunctions";
