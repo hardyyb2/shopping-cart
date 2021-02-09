@@ -5,8 +5,6 @@
 [Live (https://shoppingcarthardik.netlify.app/)](https://shoppingcarthardik.netlify.app/)  
 [Github Repo (https://github.com/hardyyb2/shopping-cart)](https://github.com/hardyyb2/shopping-cart)
 
-**Code Attached as .zip file including build folder.**
-
 ## Instructions to run code (from root) :
 
 ### Method 1
